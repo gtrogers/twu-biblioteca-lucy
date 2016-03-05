@@ -27,8 +27,7 @@ public class testLibrary {
     public void testAddMenuItem() throws IOException {
         library.menuItems.add("Quit");
         library.printMenu();
-        String name = reader.readLine();
-//        String actual = outContent.toString().trim();
+        String name = "tbd";
         assertEquals("MAIN MENU\n1. List library items\n2. Quit\nPlease make a selection by entering the number:", name);
     }
 
