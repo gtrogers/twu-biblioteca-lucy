@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.stubs.StubOutput;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -12,7 +13,7 @@ public class testLibraryManager {
 
 //    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
-    LibraryManager libraryMgr = new LibraryManager();
+    LibraryManager libraryMgr = new LibraryManager(new StubOutput());
     Book book1 = Mockito.mock(Book.class);
     Movie movie1 = Mockito.mock(Movie.class);
     Book book2 = Mockito.mock(Book.class);

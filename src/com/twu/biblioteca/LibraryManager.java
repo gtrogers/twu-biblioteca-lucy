@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class LibraryManager extends Library {
 
-    LibraryManager() {
-        super();
+    public LibraryManager(LibraryOutput output) {
+        super(output);
     }
 
     private static final String UNAVAILABLE_MSG = "That item is not available.";
@@ -18,7 +18,7 @@ public class LibraryManager extends Library {
         if (user.getStatus()) {
             printMenu(); //print checkout menu
         }
-        System.out.println(USER_NOT_SIGNED_IN);
+        this.output.write(USER_NOT_SIGNED_IN);
     }
 
 
@@ -29,7 +29,7 @@ public class LibraryManager extends Library {
             if (categoryItem.equals(itemToCheckOut)) {
                 checkedOutItems.add(itemToCheckOut);
                 user.addToBorrowedItems(itemToCheckOut);
-                System.out.println("You've successfully checked out" + itemToCheckOut + ". Enjoy!");
+                this.output.write("You've successfully checked out" + itemToCheckOut + ". Enjoy!");
                 return itemToCheckOut;
             }
         return UNAVAILABLE_MSG;
@@ -38,7 +38,7 @@ public class LibraryManager extends Library {
     public Object returnItem(LibraryItem itemToReturn) {
         for (LibraryItem item : checkedOutItems) {
             if (item.equals(itemToReturn)) {
-                System.out.println("Thank you for returning" + itemToReturn);
+                this.output.write("Thank you for returning" + itemToReturn);
                 return itemToReturn;
             }
         }

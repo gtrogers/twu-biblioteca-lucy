@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.stubs.StubOutput;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -10,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 public class testUserManager {
 
-    Library lib = new Library();
+    Library lib = new Library(new StubOutput());
     User user1 = Mockito.spy(new User("Ringo Starr", "ringo@email.com", "06534374857", "333-2345", "letmein"));
 
     ArrayList<User> userList = new ArrayList<User>();

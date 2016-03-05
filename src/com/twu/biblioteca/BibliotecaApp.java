@@ -7,26 +7,21 @@ import java.util.Scanner;
 public class BibliotecaApp {
 
 
-    private static PrintStream out;
-    Library library = new Library();
-    //        this.library = new Library(new PrintStream(out));
+    private LibraryOutput output;
+    Library library = new Library(output);
     LibraryItem book1, book2, book3, book4, book5, movie1, movie2, movie3, movie4, movie5;
     User user1, user2, user3;
-    LibraryManager libMgr = new LibraryManager();
     UserManager userMgr;
 
-
+    public BibliotecaApp(LibraryOutput output) {
+        this.output = output;
+    }
 
     private static final int LIBRARYLIST = 1;
     private static final int SIGNIN = 2;
-//    private static final int CHECKOUT = 2;
-//    private static final int RETURN = 3;
-//    private static final int QUIT = 4;
-//
 
 
     public BibliotecaApp(PrintStream out) {
-        this.out = out;
         book1 = new Book("THE PROPHET", "Kahlil Gibran", "1923");
         book2 = new Book("TO KILL A MOCKINGBIRD", "Harper Lee", "1960");
         book3 = new Book("THE CATCHER IN THE RYE", "J.D. Salinger", "1951");
@@ -65,31 +60,22 @@ public class BibliotecaApp {
     }
 
     public void printWelcomeMsg() {
-        out.println("Hello and welcome to Biblioteca! There is no friend as loyal as a book so find yours!");
+        this.output.write("Hello and welcome to Biblioteca! There is no friend as loyal as a book so find yours!");
     }
-//
-//    public void printGoodByeMsg() {
-//        out.println("Thank you for using Biblioteca. Goodbye");
-//    }
-//
-////    public void printInvalidMsg() {
-////        out.print("Select a valid option!");
-////    }
 
     public void selectFromMainMenu(int option) {
-//        System.out.println(userMgr.userList());
         switch(option) {
             case LIBRARYLIST:
-                out.println("\nBOOKS");
+                this.output.write("\nBOOKS");
                 library.printBookList();
-                out.println("\nMOVIES");
+                this.output.write("\nMOVIES");
                 library.printMovieList();
                 library.printMenu();
             case SIGNIN:
-                out.println("Please enter your library number and password separated by a comma (e.g. 111-1111, password): ");
+                this.output.write("Please enter your library number and password separated by a comma (e.g. 111-1111, password): ");
                 getInputFromUser();
             default:
-                System.out.println("Please select a valid option.");
+                this.output.write("Please select a valid option.");
         }
     }
 
@@ -100,27 +86,25 @@ public class BibliotecaApp {
         String[] info = input.split(", ");
         String libraryNumber = info[0];
         String password = info[1];
-        System.out.println(libraryNumber);
-        System.out.println(password);
+        this.output.write(libraryNumber);
+        this.output.write(password);
         userMgr.signIn(libraryNumber, password);
     }
 
     public static void main(String[] args) {
-        BibliotecaApp biblib = new BibliotecaApp(System.out);
+        BibliotecaApp biblib = new BibliotecaApp(new Output());
         biblib.printWelcomeMsg();
         biblib.library.menuItems.add("Sign in");
 
 
         biblib.library.printMenu();
         Scanner scanner = new Scanner(System.in);
-//
+
         while(true) {
             String line = scanner.next();
             int option = Integer.parseInt(line);
             biblib.selectFromMainMenu(option);
-//
-////            biblio.selectFromMenu(bookMenu, option);
-//            ActionUserOption.getOption(option, bookMenu).go();
+
         }
     }
 

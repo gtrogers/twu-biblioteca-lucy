@@ -15,6 +15,7 @@ public class StubOutput implements LibraryOutput {
     @Override
     public String write(String message) {
         this.messages.add(message);
+        System.out.println(message);
         return message;
     }
 

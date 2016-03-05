@@ -1,38 +1,37 @@
 package com.twu.biblioteca;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Library {
 
-//    private final PrintStream out;
-    PrintStream out = new PrintStream(System.out);
+    // TODO - making this protected for now but should be private once inheritance is removed
+    protected LibraryOutput output;
+
     ArrayList<String> menuItems = new ArrayList<String>(Arrays.asList("List library items"));
     ArrayList<LibraryItem> bookList = new ArrayList<LibraryItem>();
     ArrayList<LibraryItem> movieList = new ArrayList<LibraryItem>();
     private ArrayList<User> userList = new ArrayList<User>();
 
-//    public Library(PrintStream out) {
-//        this.out = out;
-//    }
-//
+    public Library(LibraryOutput output) {
+        this.output = output;
+    }
 
     public void printMenu() {
-        out.println("MAIN MENU");
+        output.write("MAIN MENU");
         int index = 0;
         for (String item : menuItems) {
             index += 1;
-            out.println(index + ". " + item);
+            output.write(index + ". " + item);
         }
-        out.println("Please make a selection by entering the number:");
+        output.write("Please make a selection by entering the number:");
     }
 
     public void printBookList() {
         int index = 0;
         for (LibraryItem book : bookList) {
             index += 1;
-            out.print(index + ". " + book.getInfo());
+            output.write(index + ". " + book.getInfo());
         }
     }
 
@@ -40,7 +39,7 @@ public class Library {
         int index = 0;
         for (LibraryItem movie : movieList) {
             index += 1;
-            out.print(index + ". " + movie.getInfo());
+            output.write(index + ". " + movie.getInfo());
         }
     }
 
