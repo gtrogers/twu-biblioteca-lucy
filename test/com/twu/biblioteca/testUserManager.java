@@ -1,12 +1,12 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-
 
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
 
 public class testUserManager {
 

@@ -1,10 +1,7 @@
 package com.twu.biblioteca;
 
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 import java.io.PrintStream;
+import java.util.Scanner;
 
 
 public class BibliotecaApp {

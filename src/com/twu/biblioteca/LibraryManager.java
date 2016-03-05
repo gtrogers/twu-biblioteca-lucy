@@ -1,8 +1,6 @@
 package com.twu.biblioteca;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.List;
 
 public class LibraryManager extends Library {
 
