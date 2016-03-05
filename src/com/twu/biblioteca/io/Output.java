@@ -1,4 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.io;
+
+import com.twu.biblioteca.io.LibraryOutput;
 
 import java.io.PrintStream;
 

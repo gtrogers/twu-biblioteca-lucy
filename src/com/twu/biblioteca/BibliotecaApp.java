@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.io.LibraryOutput;
+import com.twu.biblioteca.io.Output;
+
 import java.util.Scanner;
 
 

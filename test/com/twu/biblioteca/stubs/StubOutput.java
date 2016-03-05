@@ -1,6 +1,6 @@
 package com.twu.biblioteca.stubs;
 
-import com.twu.biblioteca.LibraryOutput;
+import com.twu.biblioteca.io.LibraryOutput;
 
 import java.util.ArrayList;
 
