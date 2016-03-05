@@ -1,27 +1,25 @@
 package com.twu.biblioteca;
 
-import java.io.PrintStream;
 import java.util.Scanner;
 
 
 public class BibliotecaApp {
 
-
     private LibraryOutput output;
-    Library library = new Library(output);
+    private Library library;
     LibraryItem book1, book2, book3, book4, book5, movie1, movie2, movie3, movie4, movie5;
     User user1, user2, user3;
     UserManager userMgr;
-
-    public BibliotecaApp(LibraryOutput output) {
-        this.output = output;
-    }
 
     private static final int LIBRARYLIST = 1;
     private static final int SIGNIN = 2;
 
 
-    public BibliotecaApp(PrintStream out) {
+    public BibliotecaApp(LibraryOutput output) {
+        this.output = output;
+
+        this.library = new Library(output);
+
         book1 = new Book("THE PROPHET", "Kahlil Gibran", "1923");
         book2 = new Book("TO KILL A MOCKINGBIRD", "Harper Lee", "1960");
         book3 = new Book("THE CATCHER IN THE RYE", "J.D. Salinger", "1951");
@@ -37,6 +35,7 @@ public class BibliotecaApp {
         user1 = new User("Ringo Starr", "ringo@email.com", "06534374857", "111-2345", "letmein");
         user2 = new User("Amelia Hart", "amelia@email.com", "04545374857", "222-2345", "hellokitty");
         user3 = new User("Jin Chow", "jin@chow.com", "04545356857", "333-2345", "desert353");
+
         setUpLibraryListsAndUsers();
     }
 
